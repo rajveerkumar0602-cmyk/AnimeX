@@ -1,20 +1,100 @@
-# Anime Explorer
+# 🎌 Anime Explorer
 
-Anime Explorer is a project dedicated to discovering and exploring various anime series and movies. It provides users with information about different titles, recommendations based on preferences, and a platform to share their own reviews and ratings with the community.
+A sleek anime discovery web app powered by the Jikan API (MyAnimeList data). Browse top anime, search titles, filter by genre, toggle between grid and list views, and save your favourites — all with a beautiful dark/light mode UI.
 
-## Features
-- **Search Functionality:** Quickly find anime by title, genre, or criteria.
-- **User Reviews:** Share and read reviews from other anime enthusiasts.
-- **Recommendations:** Get personalized recommendations based on user ratings and sorted genres.
+---
 
-## Installation
-To get the project up and running:
-1. Clone the repository
-2. Install dependencies
-3. Start the application
+## 📌 Project Purpose
 
-## Contributing
-Everyone is welcome to contribute! Please refer to the CONTRIBUTING.md file for guidelines.
+Anime Explorer lets users discover and explore anime titles from the world's largest anime database. Users can search by name, filter by genre, sort by score or popularity, switch between grid and list views, and like/save their favourite anime with localStorage persistence.
 
-## License
-This project is licensed under the MIT License.
+---
+
+## 🔗 API Used
+
+**Jikan API v4** (Unofficial MyAnimeList API)
+- **Base URL:** `https://api.jikan.moe/v4`
+- **Docs:** https://docs.api.jikan.moe
+- **Auth:** None required — completely free and public
+- **Key Endpoints:**
+  - `GET /top/anime` — Top anime list
+  - `GET /anime?q={query}` — Search anime by name
+  - `GET /anime?genres={id}` — Filter by genre
+
+---
+
+## ✨ Features
+
+### Core Features
+- 🔍 **Search** — Real-time search with debouncing using `filter()`
+- 🗂️ **Filter** — Filter by genre using `filter()`
+- 📊 **Sort** — Sort by score, popularity, or title using `sort()`
+- ❤️ **Favourites** — Like/save anime, persisted with `localStorage`
+- 🌙 **Dark / Light Mode** — Theme toggle saved in `localStorage`
+
+### UI Features
+- 📐 **Grid / List View Toggle** — Switch between card grid and list view
+- 🔄 **Loading Indicator** — Spinner during API fetch
+- 📄 **Pagination** — Browse results page by page
+- ⏱️ **Debounced Search** — Avoids excessive re-renders
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| HTML5 | Structure |
+| CSS3 | Styling, dark mode, responsive layout |
+| JavaScript (Vanilla) | Logic, API calls, HOFs, DOM |
+| Jikan API v4 | Anime data |
+| localStorage | Favourites + theme persistence |
+
+---
+
+## 📁 Project Structure
+
+```
+anime-explorer/
+├── index.html      # Main HTML
+├── style.css       # Styles + dark mode + responsive
+├── script.js       # API fetch, search, filter, sort, favourites
+└── README.md       # Documentation
+```
+
+---
+
+## 🚀 How to Run
+
+```bash
+git clone https://github.com/your-username/anime-explorer.git
+cd anime-explorer
+# Open index.html in any browser — no server needed
+```
+
+---
+
+## 📅 Milestones
+
+| Milestone | Description | Deadline |
+|---|---|---|
+| 1 | Project setup, README, idea | 23rd March |
+| 2 | API integration, responsive UI | 1st April |
+| 3 | Search, filter, sort, favourites (HOFs) | 8th April |
+| 4 | Cleanup, deployment | 10th April |
+
+---
+
+## ⚙️ Notes
+
+- All search, filtering and sorting use JavaScript Array HOFs (`filter`, `sort`, `map`) — no `for`/`while` loops.
+- Debouncing applied to search input.
+- localStorage persists favourites and dark mode preference.
+
+---
+
+## 👤 Author
+
+**Your Name** — [@your-username](https://github.com/your-username)
+
+> Built as part of a JavaScript & API Integration course project.
