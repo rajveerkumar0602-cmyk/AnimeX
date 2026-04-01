@@ -1,53 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Explorer | Milestone 2</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AnimeX</title>
+  <link rel="stylesheet" href="AnimeX.css" />
 </head>
-<body class="light-theme"> <nav class="navbar">
-        <div class="logo">AnimeHub</div>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search anime...">
-            <div id="favOpenBtn" class="fav-icon">
-                Favorites <span id="favBadge">0</span>
-            </div>
-        </div>
-    </nav>
+<body>
 
-    <div class="filters">
-        <select id="genreFilter">
-            <option value="">All Genres</option>
-            <option value="1">Action</option>
-            <option value="2">Adventure</option>
-        </select>
-        <select id="typeFilter">
-            <option value="">All Types</option>
-            <option value="tv">TV</option>
-            <option value="movie">Movie</option>
-        </select>
-        <div class="view-toggles">
-            <button id="gridBtn" class="view-btn-active">Grid</button>
-            <button id="listBtn" class="view-btn">List</button>
-        </div>
-    </div>
+  <header>
+    <h1>AnimeX</h1>
+  </header>
 
-    <main id="app">
-        <div id="loader" class="loader">Loading...</div>
-        <div id="grid" class="grid-view"></div>
-        <div id="pager"></div>
-    </main>
+  <main>
+    <div id="loader" class="loader">Loading...</div>
+    <div id="anime-container" class="anime-container"></div>
+  </main>
 
-    <div id="fovBackdrop" class="fov-backdrop"></div>
-    <div id="favPanel" class="fav-panel">
-        <div class="panel-header">
-            <h3>My Favorites</h3>
-            <button id="favClose">×</button>
-        </div>
-        <div id="favList"></div>
-    </div>
-
-    <script src="script.js"></script>
+  <script src="AnimeX.js"></script>
 </body>
 </html>
