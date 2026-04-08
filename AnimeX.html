@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AnimeX</title>
-  <link rel="stylesheet" href="AnimeX.css" />
+  <link rel="stylesheet" href="AnimeX.css">
 </head>
 <body>
 
-  <header>
-    <h1>AnimeX</h1>
-  </header>
+<header>
+  <h1>AnimeX</h1>
 
-  <main>
-    <div id="loader" class="loader">Loading...</div>
-    <div id="anime-container" class="anime-container"></div>
-  </main>
+  <input type="text" id="search" placeholder="Search anime...">
 
-  <script src="AnimeX.js"></script>
+  <select id="filter">
+    <option value="">All Types</option>
+    <option value="tv">TV</option>
+    <option value="movie">Movie</option>
+  </select>
+
+  <select id="sort">
+    <option value="">Sort</option>
+    <option value="asc">Score ↑</option>
+    <option value="desc">Score ↓</option>
+  </select>
+
+  <button id="toggle-theme">🌙</button>
+</header>
+
+<main>
+  <div id="loader" class="loader">Loading...</div>
+  <div id="anime-container" class="anime-container"></div>
+</main>
+
+<script src="AnimeX.js"></script>
 </body>
 </html>
