@@ -76,12 +76,12 @@ cd anime-explorer
 
 ## 📅 Milestones
 
-| Milestone | Description | Deadline |
+| Milestone | Description | Status |
 |---|---|---|
-| 1 | Project setup, README, idea | 23rd March |
-| 2 | API integration, responsive UI | 1st April |
-| 3 | Search, filter, sort, favourites (HOFs) | 8th April |
-| 4 | Cleanup, deployment | 10th April |
+| 1 | Project setup, README, idea | ✅ Completed |
+| 2 | API integration, responsive UI | ✅ Completed |
+| 3 | Search, filter, sort, favourites (HOFs) | ✅ Completed |
+| 4 | Cleanup, deployment | ✅ Completed |
 
 ---
 
@@ -95,6 +95,6 @@ cd anime-explorer
 
 ## 👤 Author
 
-**Your Name** — [@your-username](https://github.com/your-username)
+**Your Name** — [@Rajveer Kumar](https://github.com/rajveerkumar0602-cmyk))
 
 > Built as part of a JavaScript & API Integration course project.
