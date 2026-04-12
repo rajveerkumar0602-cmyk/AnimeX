@@ -70,6 +70,23 @@ input, select {
   border: none;
 }
 
+.light {
+  background-color: #f1f5f9;
+  color: black;
+}
+
+.light header {
+  background-color: #e2e8f0;
+}
+
+.light .card {
+  background: white;
+}
+
+.light .card p {
+  color: #334155;
+}
+
 .loader {
   text-align: center;
   font-size: 1.5rem;
