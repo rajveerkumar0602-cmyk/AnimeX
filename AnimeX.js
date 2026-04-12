@@ -5,9 +5,13 @@ const searchInput = document.getElementById("search");
 const filterSelect = document.getElementById("filter");
 const sortSelect = document.getElementById("sort");
 
+
+const themeToggle = document.getElementById("theme-toggle");
+
+
 let animeData = [];
 
-// FETCH FUNCTION
+
 async function fetchAnime(query = "naruto") {
   try {
     loader.style.display = "block";
@@ -15,24 +19,27 @@ async function fetchAnime(query = "naruto") {
     const res = await fetch(`https://api.jikan.moe/v4/anime?q=${query}`);
 
     if (res.status === 429) {
-      container.innerHTML = "<p>Wait a moment... API limit hit ⏳</p>";
+      container.innerHTML = "<p>Please wait... API limit reached ⏳</p>";
       return;
     }
 
-    const data = await res.json();
+    if (!res.ok) {
+      throw new Error("Failed to fetch");
+    }
 
+    const data = await res.json();
     animeData = data.data || [];
+
     renderAnime(animeData);
 
-  } catch (err) {
-    console.error(err);
-    container.innerHTML = "<p>Error loading data</p>";
+  } catch (error) {
+    container.innerHTML = "<p>Error loading anime 😢</p>";
   } finally {
     loader.style.display = "none";
   }
 }
 
-// RENDER FUNCTION (same design)
+
 function renderAnime(list) {
   container.innerHTML = "";
 
@@ -41,7 +48,7 @@ function renderAnime(list) {
     card.classList.add("card");
 
     card.innerHTML = `
-      <img src="${anime.images.jpg.image_url}">
+      <img src="${anime.images.jpg.image_url}" alt="${anime.title}">
       <div class="card-content">
         <h3>${anime.title}</h3>
         <p>Score: ${anime.score || "N/A"}</p>
@@ -52,7 +59,7 @@ function renderAnime(list) {
   });
 }
 
-// 🔍 SEARCH (Debounced)
+
 let timeout;
 searchInput.addEventListener("input", () => {
   clearTimeout(timeout);
@@ -65,7 +72,7 @@ searchInput.addEventListener("input", () => {
   }, 800);
 });
 
-// 🎯 FILTER (Array.filter)
+
 filterSelect.addEventListener("change", () => {
   const filtered = animeData.filter(a =>
     filterSelect.value === "" ||
@@ -75,13 +82,36 @@ filterSelect.addEventListener("change", () => {
   renderAnime(filtered);
 });
 
-// 🔽 SORT (Array.sort)
+
 sortSelect.addEventListener("change", () => {
   const sorted = [...animeData].sort((a, b) => {
     return sortSelect.value === "asc"
       ? (a.score || 0) - (b.score || 0)
       : (b.score || 0) - (a.score || 0);
   });
+
+  renderAnime(sorted);
+});
+
+fetchAnime();
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+
+  if (document.body.classList.contains("light")) {
+    themeToggle.textContent = "🌞";
+    localStorage.setItem("theme", "light");
+  } else {
+    themeToggle.textContent = "🌙";
+    localStorage.setItem("theme", "dark");
+  }
+});
+
+
+if (localStorage.getItem("theme") === "light") {
+  document.body.classList.add("light");
+  themeToggle.textContent = "🌞";
+}
 
   renderAnime(sorted);
 });
