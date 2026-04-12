@@ -95,6 +95,6 @@ cd anime-explorer
 
 ## 👤 Author
 
-**Your Name** — [@Rajveer Kumar](https://github.com/rajveerkumar0602-cmyk))
+**Your Name** — [@Rajveer Kumar](https://github.com/rajveerkumar0602-cmyk)
 
 > Built as part of a JavaScript & API Integration course project.
